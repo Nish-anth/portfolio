@@ -1,0 +1,35 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo-shape {
+    width: 60px;
+    height: 30px;
+    background-color: #fff;
+    margin-right: 10px;
+    border-radius: 0px 60px 60px 0px;
+}
+
+.logo-text {
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 1rem;
+}
+
+.nav a:hover {
+    text-decoration: underline;
+}

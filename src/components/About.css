@@ -1,0 +1,354 @@
+.about {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Dark background */
+    color: #e0e0e0; /* Light text */
+    font-family: sans-serif;
+    scroll-snap-align: start;
+    padding: 4rem 2rem;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.about-subtitle {
+    display: inline-block;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+}
+
+.about-header h2 {
+    font-family: 'Homemade Apple', cursive;
+    font-size: 3rem;
+    font-weight: normal; /* The font is already quite bold */
+}
+
+
+
+.tall-card {
+    grid-row: span 2;
+}
+
+.stats-container {
+    width: 100%;
+}
+
+.stat-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1rem;
+}
+
+.stat-label {
+    color: #aaa;
+}
+
+.stat-value {
+    color: #ffffff; /* Change color to white */
+    font-weight: bold;
+}
+
+/* F1 Stats Card Design - Top-Down Layout */
+.f1-stats-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  height: 100%;
+}
+
+.f1-profile-image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.f1-stat {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  padding: 0.4rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 3px solid #8A2BE2; /* Corresponds to gradient-card-purple */
+  height: 45px; /* Set a fixed height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0; /* Start hidden */
+  transform: skewX(-15deg);
+  animation: slideInFromRight 0.5s ease-out forwards;
+}
+
+.f1-stat > * {
+  transform: skewX(15deg); /* Un-skew the content */
+  display: block;
+  text-align: center;
+}
+
+.f1-stat-label {
+  font-size: 0.5rem;
+  color: #ccc;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+
+.f1-stat-value {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  line-height: 1;
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px) skewX(-15deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) skewX(-15deg);
+  }
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.about-card {
+    position: relative;
+    overflow: hidden; /* Ensures the gradient doesn't spill out */
+    background-color: rgba(255, 255, 255, 0.05); /* Slightly transparent background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem;
+    backdrop-filter: blur(15px); /* Increased blur for a frostier effect */
+    
+}
+
+
+
+.card-content {
+    position: relative;
+    z-index: 1; /* Ensures content stays above the gradient */
+    position: relative; /* Ensure content is above the glow */
+    z-index: 1; /* Higher z-index than pseudo-elements */
+}
+
+
+
+.about-card.large-card {
+    grid-column: span 2; /* Make this card wider */
+}
+
+/* General styles for all gradient cards */
+.gradient-card-blue, .gradient-card-green, .gradient-card-purple, .gradient-card-red {
+    color: #fff; /* Ensure text is readable */
+}
+
+.gradient-card-blue p, .gradient-card-blue h3,
+.gradient-card-green p, .gradient-card-green h3,
+.gradient-card-purple p, .gradient-card-purple h3,
+.gradient-card-red p, .gradient-card-red h3 {
+    color: #fff;
+}
+
+/* General pseudo-element styles for all gradient cards */
+/* General pseudo-element styles for all gradient cards */
+.gradient-card-blue::before, .gradient-card-blue::after,
+.gradient-card-green::before, .gradient-card-green::after,
+.gradient-card-purple::before, .gradient-card-purple::after,
+.gradient-card-red::before, .gradient-card-red::after {
+    content: '';
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    pointer-events: none;
+    z-index: 0;
+    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Top-right gradient */
+.gradient-card-blue::before, .gradient-card-green::before, .gradient-card-purple::before, .gradient-card-red::before {
+    top: 0;
+    right: 0;
+    transform: translate(30%, -30%);
+}
+
+/* Bottom-left gradient */
+.gradient-card-blue::after, .gradient-card-green::after, .gradient-card-purple::after, .gradient-card-red::after {
+    bottom: 0;
+    left: 0;
+    transform: translate(-30%, 30%);
+}
+
+/* Hover effect for gradients */
+/* .about-card:hover::before {
+    transform: translate(-30%, 30%);
+}
+
+.about-card:hover::after {
+    transform: translate(30%, -30%);
+} */
+
+
+/* Blue Gradient */
+.gradient-card-blue::before { background: radial-gradient(circle at top right, rgba(83, 120, 149, 0.4) 0%, rgba(83, 120, 149, 0) 70%); }
+.gradient-card-blue::after { background: radial-gradient(circle at bottom left, rgba(83, 120, 149, 0.4) 0%, rgba(83, 120, 149, 0) 70%); }
+
+/* Green Gradient */
+
+.gradient-card-green::before { background: radial-gradient(circle at top right, rgba(22, 163, 74, 0.3) 0%, rgba(22, 163, 74, 0) 70%); }
+.gradient-card-green::after { background: radial-gradient(circle at bottom left, rgba(22, 163, 74, 0.3) 0%, rgba(22, 163, 74, 0) 70%); }
+
+/* Purple Gradient */
+
+.gradient-card-purple::before { background: radial-gradient(circle at top right, rgba(147, 51, 234, 0.25) 0%, rgba(147, 51, 234, 0) 70%); }
+.gradient-card-purple::after { background: radial-gradient(circle at bottom left, rgba(147, 51, 234, 0.25) 0%, rgba(147, 51, 234, 0) 70%); }
+
+/* Red Gradient */
+.gradient-card-red::before { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.25) 0%, rgba(220, 38, 38, 0) 70%); }
+.gradient-card-red::after { background: radial-gradient(circle at bottom left, rgba(220, 38, 38, 0.25) 0%, rgba(220, 38, 38, 0) 70%); }
+
+/* Resume Card Styles */
+.resume-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-card::before,
+.resume-card::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-image: radial-gradient(circle, rgba(253, 251, 251, 0.08) 0%, rgba(235, 237, 238, 0) 60%);
+  animation: emanate 10s linear infinite;
+  z-index: 0;
+}
+
+.resume-card::before {
+  top: -150px;
+  right: -150px;
+}
+
+.resume-card::after {
+  bottom: -150px;
+  left: -150px;
+  animation-delay: -5s;
+}
+
+.resume-card .card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+.resume-card p {
+    margin: 1rem 0 1.5rem 0;
+}
+
+/* Animated CTA Button */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem; /* Add space between text and icon */
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #e0e0e0;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: pulse-glow 3s infinite ease-in-out;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.1), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), 0 0 30px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.cta-button .button-text, .cta-button .button-icon {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    z-index: 2; /* Ensure content is above the shine */
+}
+
+.cta-button .button-icon svg {
+    transition: stroke 0.4s ease-in-out;
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s ease;
+    z-index: 1;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.about-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.about-card p, .about-card ul {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #a0a0a0; /* Lighter text for paragraphs */
+}
+
+.about-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about-card ul li {
+    margin-bottom: 0.5rem;
+}

@@ -1,0 +1,36 @@
+.typewriter-container {
+    display: inline-block;
+}
+
+.typewriter-text {
+    font-family: 'Homemade Apple', cursive;
+    font-size: 1.5rem; 
+    font-weight: normal; /* Cursive fonts often look better with normal weight */
+    color: #000; 
+    white-space: pre-wrap; /* Handle line breaks */
+}
+
+.intro-text .typewriter-text {
+    font-size: 2.5rem; /* Larger font size */
+    font-weight: 900; /* Bolder */
+}
+
+.typewriter-cursor {
+    animation: blink 1s step-end infinite;
+    font-size: 1.5rem;
+    color: #000;
+    margin-left: 2px;
+}
+
+.typewriter-cursor.is-complete {
+    display: none;
+}
+
+@keyframes blink {
+    from, to {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}

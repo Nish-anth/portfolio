@@ -1,0 +1,115 @@
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(var(--rotate));
+    }
+    50% {
+        transform: translateY(-10px) rotate(var(--rotate));
+    }
+    100% {
+        transform: translateY(0px) rotate(var(--rotate));
+    }
+}
+
+/* Wrapper for magnetic effect */
+.skill-badge-wrapper {
+    position: absolute;
+    transition: transform 0.2s ease-out; /* Smoother transition */
+}
+
+/* Inner badge for animations and styling */
+.skill-badge {
+    padding: 1rem;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    animation-name: float;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transform-origin: center center;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.15);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+}
+
+.skill-badge-title {
+    font-weight: bold;
+}
+
+/* Positional classes now apply to the wrapper */
+.design-strategy {
+    top: 2rem;
+    left: 2rem;
+}
+.design-strategy .skill-badge {
+    background-color: #68d3c2;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation-duration: 3s;
+}
+
+.e-comm {
+    top: 10rem;
+    left: -2rem;
+}
+.e-comm .skill-badge {
+    --rotate: -5deg;
+    background-color: #3A59D1;
+    transform: rotate(var(--rotate));
+    animation-duration: 4s;
+    animation-delay: 0.5s;
+}
+
+.motion-interaction {
+    bottom: 2rem;
+    left: 4rem;
+}
+.motion-interaction .skill-badge {
+    --rotate: 5deg;
+    background-color: #CF0F47;
+    transform: rotate(var(--rotate));
+    animation-duration: 3.5s;
+    animation-delay: 1s;
+}
+
+.user-experience {
+    top: 8rem;
+    right: 5rem;
+}
+.user-experience .skill-badge {
+    --rotate: 5deg;
+    background-color: #ec4899;
+    transform: rotate(var(--rotate));
+    animation-duration: 4.2s;
+    animation-delay: 0.2s;
+}
+
+.branding-identity {
+    bottom: 6rem;
+    right: 2rem;
+}
+.branding-identity .skill-badge {
+    --rotate: -5deg;
+    background-color: #222222;
+    transform: rotate(var(--rotate));
+    animation-duration: 3.8s;
+    animation-delay: 0.8s;
+}
+
+.usability-testing {
+    bottom: -1rem;
+    right: 10rem;
+}
+.usability-testing .skill-badge {
+    background-color: #a3e635;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation-duration: 3.2s;
+    animation-delay: 0.4s;
+}

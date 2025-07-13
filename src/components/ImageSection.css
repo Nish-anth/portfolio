@@ -1,0 +1,38 @@
+.image-section {
+    position: relative;
+    background-color: #f3e9e1;
+    border-radius: 0px 600px 600px 0px;
+    margin: 2rem auto;
+    padding: 2rem;
+    height: 300px;
+    width: 80%;
+    background-image: linear-gradient(to right, #e0d8d1 1px, transparent 1px), linear-gradient(to bottom, #e0d8d1 1px, transparent 1px);
+    background-size: 40px 40px;
+}
+
+.profile-image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: auto;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.typewriter-left {
+    position: absolute;
+    top: 50%;
+    left: 12.5%;
+    transform: translateY(-50%);
+    z-index: 20;
+}
+
+.typewriter-right {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    z-index: 20;
+}
