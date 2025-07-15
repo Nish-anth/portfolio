@@ -12,6 +12,7 @@
 
 /* Wrapper for magnetic effect */
 .skill-badge-wrapper {
+    /* z-index: 20; */
     position: absolute;
     transition: transform 0.2s ease-out; /* Smoother transition */
 }
@@ -112,4 +113,64 @@
     justify-content: center;
     animation-duration: 3.2s;
     animation-delay: 0.4s;
+}
+
+@media (max-width: 768px) {
+    .skill-badge {
+        transform: scale(0.7);
+    }
+
+    /* Top badges */
+    .e-comm {
+        top: 1rem;
+        left: 50%;
+        transform: translateX(-150%);
+    }
+
+    .branding-identity {
+        top: 1rem;
+        right: 50%;
+        transform: translateX(150%);
+    }
+
+    /* Bottom badges */
+    .motion-interaction {
+        bottom: 1rem;
+        top: auto;
+        left: 50%;
+        transform: translate(-180%, 0);
+    }
+
+    .user-experience {
+        bottom: 1rem;
+        top: auto;
+        right: 50%;
+        transform: translate(180%, 0);
+    }
+}
+
+@media (max-width: 480px) {
+    /* Top badges */
+    .e-comm {
+        top: 2rem;
+        transform: translateX(-120%);
+    }
+
+    .branding-identity {
+        top: 2rem;
+        transform: translateX(120%);
+    }
+
+    /* Bottom badges */
+    .motion-interaction {
+        bottom: 0.5rem;
+        right: 5rem;
+        transform: translate(-150%, 0);
+    }
+
+    .user-experience {
+        bottom: 2.5rem;
+        left: 5rem;
+        transform: translate(150%, 0);
+    }
 }

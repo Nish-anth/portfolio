@@ -1,10 +1,16 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import './Header.css';
 
 const languageKeys = ['english', 'tamil', 'hindi', 'malayalam', 'telugu'] as const;
 type LanguageKey = typeof languageKeys[number];
 
 const Header: React.FC = () => {
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
   const names: Record<LanguageKey, string> = useMemo(() => ({
     english: 'Nishanth',
     tamil: 'நிஷாந்த்',
@@ -57,20 +63,23 @@ const Header: React.FC = () => {
     scramble(names[languages[currentLanguageIndex]]);
   }, [currentLanguageIndex, languages, names, scramble]);
 
+  const HamburgerIcon = FaBars as React.ElementType;
+  const CloseIcon = FaTimes as React.ElementType;
+
   return (
     <header className="header">
       <div className="logo">
         <div className="logo-shape"></div>
-        <div className="logo-text">
-          <div>{displayedName}</div>
-        </div>
+        <span className="logo-text">{displayedName}</span>
       </div>
-      <nav className="nav">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#blog">Blog</a>
-        <a href="#contact">Contact</a>
+      <nav className={`nav ${isMobileMenuOpen ? 'nav-open' : ''}`}>
+        <a href="#about" onClick={() => setMobileMenuOpen(false)}>About</a>
+        <a href="#projects" onClick={() => setMobileMenuOpen(false)}>Projects</a>
+        <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Contact</a>
       </nav>
+      <div className="hamburger" onClick={toggleMobileMenu}>
+        {isMobileMenuOpen ? <CloseIcon /> : <HamburgerIcon />}
+      </div>
     </header>
   );
 };

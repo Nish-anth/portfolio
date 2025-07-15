@@ -5,9 +5,10 @@ interface TypewriterProps {
   text: string | string[];
   speed?: number;
   className?: string;
+  textClassName?: string;
 }
 
-const Typewriter: React.FC<TypewriterProps> = ({ text, speed = 100, className }) => {
+const Typewriter: React.FC<TypewriterProps> = ({ text, speed = 100, className, textClassName }) => {
   const [displayText, setDisplayText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
 
@@ -26,7 +27,7 @@ const Typewriter: React.FC<TypewriterProps> = ({ text, speed = 100, className })
 
   return (
     <div className={`typewriter-container ${className || ''}`}>
-      <span className="typewriter-text">{displayText}</span>
+      <span className={`typewriter-text ${textClassName || ''}`}>{displayText}</span>
       <span className={`typewriter-cursor ${isComplete ? 'is-complete' : ''}`}>|</span>
     </div>
   );

@@ -1,4 +1,5 @@
 .image-section {
+    overflow: hidden; /* Clip content outside the container's bounds */
     position: relative;
     background-color: #f3e9e1;
     border-radius: 0px 600px 600px 0px;
@@ -10,14 +11,19 @@
     background-size: 40px 40px;
 }
 
+
+
+.typewriter-container-mobile {
+    display: none; /* Hidden by default on desktop */
+}
+
 .profile-image {
     position: absolute;
-    bottom: 0;
+    bottom: -70px; /* Push image down, creating overflow at the top */
     left: 50%;
     transform: translateX(-50%);
     width: 400px;
     height: auto;
-    border-radius: 20px;
     z-index: 10;
 }
 
@@ -35,4 +41,83 @@
     right: 10%;
     transform: translateY(-50%);
     z-index: 20;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .image-section {
+        width: 90%;
+    }
+}
+
+@media (max-width: 992px) {
+    .profile-image {
+        width: 300px;
+    }
+
+    .image-section {
+        height: 250px;
+    }
+
+    .typewriter-left {
+        left: 8%;
+    }
+
+    .typewriter-right {
+        right: 8%;
+    }
+}
+
+.landing-section-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .image-section {
+        /* Revert to a positioning context, not flex */
+        height: 200px; /* Adjust height for mobile */
+        padding: 2rem 1rem;
+        width: 90%;
+        /* The original border-radius will now apply */
+    }
+
+    .typewriter-left,
+    .typewriter-right {
+        display: none; /* Hide original typewriter text on mobile */
+    }
+
+    .typewriter-container-mobile {
+        display: flex; /* Use flexbox for easy alignment */
+        flex-direction: column;
+        align-items: center;
+        width: 90%;
+        margin-top: 2rem; /* Space below the image section */
+        text-align: center;
+    }
+
+    /* Use a more specific selector to override the default color */
+    .typewriter-text.mobile-typewriter-text {
+        color: #f3e9e1;
+    }
+
+    /* Style the first typewriter (Hey, there...) */
+    .typewriter-container-mobile .typewriter:first-child {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    /* Style the second typewriter (I weave elegance...) */
+    .typewriter-container-mobile .typewriter:last-child {
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+
+    .profile-image {
+        width: 300px;
+        bottom: -50px;
+    }
+
 }

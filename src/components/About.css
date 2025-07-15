@@ -352,3 +352,54 @@
 .about-card ul li {
     margin-bottom: 0.5rem;
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about {
+        padding: 4rem 1rem; /* Reduce horizontal padding */
+    }
+
+    .about-header h2 {
+        font-size: 2.5rem; /* Reduce header font size */
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr; /* Stack cards in a single column */
+    }
+
+    .about-card.large-card {
+        grid-column: span 1; /* Reset column span for large cards */
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr; /* Stack stats in a single column */
+    }
+
+    .f1-profile-image {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-header h2 {
+        font-size: 2rem; /* Further reduce header font size */
+    }
+
+    .about-card {
+        padding: 1.5rem; /* Reduce card padding */
+    }
+
+    .cta-button {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .f1-stat-label {
+        font-size: 0.45rem;
+    }
+
+    .f1-stat-value {
+        font-size: 0.9rem;
+    }
+}
