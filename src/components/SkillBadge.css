@@ -12,9 +12,8 @@
 
 /* Wrapper for magnetic effect */
 .skill-badge-wrapper {
-    /* z-index: 20; */
     position: absolute;
-    transition: transform 0.2s ease-out; /* Smoother transition */
+    transition: transform 0.3s ease-out;
 }
 
 /* Inner badge for animations and styling */
@@ -51,11 +50,12 @@
     animation-duration: 3s;
 }
 
-.e-comm {
+.full-stack {
     top: 10rem;
     left: -2rem;
 }
-.e-comm .skill-badge {
+
+.full-stack .skill-badge {
     --rotate: -5deg;
     background-color: #3A59D1;
     transform: rotate(var(--rotate));
@@ -63,11 +63,12 @@
     animation-delay: 0.5s;
 }
 
-.motion-interaction {
+.fintech {
     bottom: 2rem;
     left: 4rem;
 }
-.motion-interaction .skill-badge {
+
+.fintech .skill-badge {
     --rotate: 5deg;
     background-color: #CF0F47;
     transform: rotate(var(--rotate));
@@ -75,11 +76,12 @@
     animation-delay: 1s;
 }
 
-.user-experience {
+.gamer {
     top: 8rem;
     right: 5rem;
 }
-.user-experience .skill-badge {
+
+.gamer .skill-badge {
     --rotate: 5deg;
     background-color: #ec4899;
     transform: rotate(var(--rotate));
@@ -87,11 +89,12 @@
     animation-delay: 0.2s;
 }
 
-.branding-identity {
+.bike-enthusiast {
     bottom: 6rem;
     right: 2rem;
 }
-.branding-identity .skill-badge {
+
+.bike-enthusiast .skill-badge {
     --rotate: -5deg;
     background-color: #222222;
     transform: rotate(var(--rotate));
@@ -116,61 +119,34 @@
 }
 
 @media (max-width: 768px) {
+
     .skill-badge {
-        transform: scale(0.7);
+        transform: scale(0.6); /* Further reduce badge size */
+        font-size: 0.8rem; /* Reduce font size */
+        /* Floating animation is now re-enabled on mobile */
     }
 
-    /* Top badges */
-    .e-comm {
-        top: 1rem;
-        left: 50%;
-        transform: translateX(-150%);
+    .gamer {
+        top: 10rem;
+        right: 1rem;
     }
 
-    .branding-identity {
-        top: 1rem;
-        right: 50%;
-        transform: translateX(150%);
+    .bike-enthusiast {
+        bottom: 10rem;
+        right: 0rem;
     }
 
-    /* Bottom badges */
-    .motion-interaction {
-        bottom: 1rem;
-        top: auto;
-        left: 50%;
-        transform: translate(-180%, 0);
+    .fintech {
+        bottom: 2rem;
+        left: 1rem;
     }
 
-    .user-experience {
-        bottom: 1rem;
-        top: auto;
-        right: 50%;
-        transform: translate(180%, 0);
+    .full-stack {
+        top: 2rem;
+        left: 0rem;
     }
 }
 
 @media (max-width: 480px) {
-    /* Top badges */
-    .e-comm {
-        top: 2rem;
-        transform: translateX(-120%);
-    }
 
-    .branding-identity {
-        top: 2rem;
-        transform: translateX(120%);
-    }
-
-    /* Bottom badges */
-    .motion-interaction {
-        bottom: 0.5rem;
-        right: 5rem;
-        transform: translate(-150%, 0);
-    }
-
-    .user-experience {
-        bottom: 2.5rem;
-        left: 5rem;
-        transform: translate(150%, 0);
-    }
 }

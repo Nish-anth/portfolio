@@ -15,10 +15,10 @@ const ImageSection: React.FC = () => {
         <div className="typewriter-right">
           <Typewriter text={['I weave elegance in design, precision in code;', 'crafting a digital tapestry.']} />
         </div>
-        <SkillBadge title="full-stack developer" className="e-comm" />
-        <SkillBadge title="fintech" className="motion-interaction" />
-        <SkillBadge title="gamer" className="user-experience" />
-        <SkillBadge title="bike enthusiast" className="branding-identity" />
+        <SkillBadge title="full-stack developer" className="full-stack" />
+        <SkillBadge title="fintech" className="fintech" />
+        <SkillBadge title="gamer" className="gamer" />
+        <SkillBadge title="bike enthusiast" className="bike-enthusiast" />
       </div>
       <div className="typewriter-container-mobile">
         <Typewriter text={["Hey, there. I'm Nishanth"]} textClassName="mobile-typewriter-text" />

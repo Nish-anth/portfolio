@@ -88,7 +88,7 @@
   background: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
   padding: 0.4rem 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-left: 3px solid #8A2BE2; /* Corresponds to gradient-card-purple */
+  border-left: 3px solid var(--accent-color, #ccc);
   height: 45px; /* Set a fixed height */
   display: flex;
   flex-direction: column;
@@ -164,102 +164,112 @@
     grid-column: span 2; /* Make this card wider */
 }
 
+/* === START GRADIENT CARD STYLES === */
+
 /* General styles for all gradient cards */
-.gradient-card-blue, .gradient-card-green, .gradient-card-purple, .gradient-card-red {
+.gradient-card-blue, 
+.gradient-card-green, 
+.gradient-card-purple, 
+.gradient-card-red, 
+.gradient-card-silver {
     color: #fff; /* Ensure text is readable */
 }
 
 .gradient-card-blue p, .gradient-card-blue h3,
 .gradient-card-green p, .gradient-card-green h3,
 .gradient-card-purple p, .gradient-card-purple h3,
-.gradient-card-red p, .gradient-card-red h3 {
+.gradient-card-red p, .gradient-card-red h3,
+.gradient-card-silver p, .gradient-card-silver h3 {
     color: #fff;
 }
 
 /* General pseudo-element styles for all gradient cards */
-/* General pseudo-element styles for all gradient cards */
 .gradient-card-blue::before, .gradient-card-blue::after,
 .gradient-card-green::before, .gradient-card-green::after,
 .gradient-card-purple::before, .gradient-card-purple::after,
-.gradient-card-red::before, .gradient-card-red::after {
+.gradient-card-red::before, .gradient-card-red::after,
+.gradient-card-silver::before, .gradient-card-silver::after {
     content: '';
     position: absolute;
-    width: 450px;
-    height: 450px;
+    width: 600px;
+    height: 600px;
     pointer-events: none;
     z-index: 0;
-    transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
 }
 
-/* Top-right gradient */
-.gradient-card-blue::before, .gradient-card-green::before, .gradient-card-purple::before, .gradient-card-red::before {
+/* Top-right gradient animation */
+.gradient-card-blue::before, 
+.gradient-card-green::before, 
+.gradient-card-purple::before, 
+.gradient-card-red::before, 
+.gradient-card-silver::before {
     top: 0;
     right: 0;
-    transform: translate(30%, -30%);
+    animation-name: emanate-top-right;
 }
 
-/* Bottom-left gradient */
-.gradient-card-blue::after, .gradient-card-green::after, .gradient-card-purple::after, .gradient-card-red::after {
+/* Bottom-left gradient animation */
+.gradient-card-blue::after, 
+.gradient-card-green::after, 
+.gradient-card-purple::after, 
+.gradient-card-red::after, 
+.gradient-card-silver::after {
     bottom: 0;
     left: 0;
-    transform: translate(-30%, 30%);
+    animation-name: emanate-bottom-left;
+    animation-delay: -5s; /* Offset the animation */
 }
 
-/* Hover effect for gradients */
-/* .about-card:hover::before {
-    transform: translate(-30%, 30%);
+@keyframes emanate-top-right {
+    0%, 100% { transform: translate(30%, -30%) scale(0.5); opacity: 0.5; }
+    50% { transform: translate(30%, -30%) scale(1); opacity: 0.7; }
 }
 
-.about-card:hover::after {
-    transform: translate(30%, -30%);
-} */
+@keyframes emanate-bottom-left {
+    0%, 100% { transform: translate(-30%, 30%) scale(0.5); opacity: 0.5; }
+    50% { transform: translate(-30%, 30%) scale(1); opacity: 0.7; }
+}
 
+/* --- Accent Color Definitions --- */
+.gradient-card-blue { --accent-color: #537895; }
+.gradient-card-green { --accent-color: #16a34a; }
+.gradient-card-purple { --accent-color: #9333ea; }
+.gradient-card-red { --accent-color: #DC2626; }
+.gradient-card-silver { --accent-color: #c0c0c0; }
 
+/* --- Gradient Color Definitions --- */
 /* Blue Gradient */
-.gradient-card-blue::before { background: radial-gradient(circle at top right, rgba(83, 120, 149, 0.4) 0%, rgba(83, 120, 149, 0) 70%); }
-.gradient-card-blue::after { background: radial-gradient(circle at bottom left, rgba(83, 120, 149, 0.4) 0%, rgba(83, 120, 149, 0) 70%); }
+.gradient-card-blue::before { background: radial-gradient(circle at top right, rgba(83, 120, 149, 0.6) 0%, rgba(83, 120, 149, 0) 70%); }
+.gradient-card-blue::after { background: radial-gradient(circle at bottom left, rgba(83, 120, 149, 0.6) 0%, rgba(83, 120, 149, 0) 70%); }
 
 /* Green Gradient */
-
-.gradient-card-green::before { background: radial-gradient(circle at top right, rgba(22, 163, 74, 0.3) 0%, rgba(22, 163, 74, 0) 70%); }
-.gradient-card-green::after { background: radial-gradient(circle at bottom left, rgba(22, 163, 74, 0.3) 0%, rgba(22, 163, 74, 0) 70%); }
+.gradient-card-green::before { background: radial-gradient(circle at top right, rgba(22, 163, 74, 0.5) 0%, rgba(22, 163, 74, 0) 70%); }
+.gradient-card-green::after { background: radial-gradient(circle at bottom left, rgba(22, 163, 74, 0.5) 0%, rgba(22, 163, 74, 0) 70%); }
 
 /* Purple Gradient */
-
-.gradient-card-purple::before { background: radial-gradient(circle at top right, rgba(147, 51, 234, 0.25) 0%, rgba(147, 51, 234, 0) 70%); }
-.gradient-card-purple::after { background: radial-gradient(circle at bottom left, rgba(147, 51, 234, 0.25) 0%, rgba(147, 51, 234, 0) 70%); }
+.gradient-card-purple::before { background: radial-gradient(circle at top right, rgba(147, 51, 234, 0.45) 0%, rgba(147, 51, 234, 0) 70%); }
+.gradient-card-purple::after { background: radial-gradient(circle at bottom left, rgba(147, 51, 234, 0.45) 0%, rgba(147, 51, 234, 0) 70%); }
 
 /* Red Gradient */
-.gradient-card-red::before { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.25) 0%, rgba(220, 38, 38, 0) 70%); }
-.gradient-card-red::after { background: radial-gradient(circle at bottom left, rgba(220, 38, 38, 0.25) 0%, rgba(220, 38, 38, 0) 70%); }
+.gradient-card-red::before { background: radial-gradient(circle at top right, rgba(220, 38, 38, 0.45) 0%, rgba(220, 38, 38, 0) 70%); }
+.gradient-card-red::after { background: radial-gradient(circle at bottom left, rgba(220, 38, 38, 0.45) 0%, rgba(220, 38, 38, 0) 70%); }
 
-/* Resume Card Styles */
-.resume-card {
-  position: relative;
-  overflow: hidden;
-}
+/* Silver Gradient */
+.gradient-card-silver::before { background: radial-gradient(circle at top right, rgba(192, 192, 192, 0.4) 0%, rgba(192, 192, 192, 0) 70%); }
+.gradient-card-silver::after { background: radial-gradient(circle at bottom left, rgba(192, 192, 192, 0.4) 0%, rgba(192, 192, 192, 0) 70%); }
 
-.resume-card::before,
-.resume-card::after {
-  content: '';
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background-image: radial-gradient(circle, rgba(253, 251, 251, 0.08) 0%, rgba(235, 237, 238, 0) 60%);
-  animation: emanate 10s linear infinite;
-  z-index: 0;
-}
+/* === END GRADIENT CARD STYLES === */
 
-.resume-card::before {
-  top: -150px;
-  right: -150px;
-}
 
-.resume-card::after {
-  bottom: -150px;
-  left: -150px;
-  animation-delay: -5s;
-}
+
+
+
+
+
+
 
 .resume-card .card-content {
     display: flex;
@@ -295,6 +305,8 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     animation: pulse-glow 3s infinite ease-in-out;
 }
+
+
 
 @keyframes pulse-glow {
   0%, 100% {
@@ -371,15 +383,20 @@
         grid-column: span 1; /* Reset column span for large cards */
     }
 
-    .stats-grid {
-        grid-template-columns: 1fr; /* Stack stats in a single column */
-    }
+    /* Reorder cards for mobile view */
+    .stats-card { order: 1; } /* Comes first on mobile */
+    .intro-card { order: 2; }
+    .location-card { order: 3; }
+    .resume-card { order: 4; }
+    .connect-card { order: 5; }
 
     .f1-profile-image {
         width: 80px;
         height: 80px;
     }
 }
+
+
 
 @media (max-width: 480px) {
     .about-header h2 {
@@ -403,3 +420,5 @@
         font-size: 0.9rem;
     }
 }
+
+

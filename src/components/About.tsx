@@ -13,14 +13,19 @@ const About: React.FC = () => {
           <h2>A little more about me.</h2>
         </div>
         <div className="about-grid">
-          <div className="about-card large-card gradient-card-green">
+          <div className="about-card large-card gradient-card-green intro-card">
             <div className="card-content">
               <h3>Intro</h3>
               <p>Passionate software engineer specializing in crafting highly efficient systems, driven to delve deep into system intricacies and push boundaries. Combining technical expertise with a keen eye for form factor, I strive to create uniquely designed solutions. </p>
             </div>
           </div>
+          <div className="about-card gradient-card-purple tall-card stats-card">
+            <div className="card-content">
+               <Stats />
+            </div>
+          </div>
           <div 
-            className="about-card gradient-card-blue tall-card"
+            className="about-card gradient-card-blue tall-card location-card"
             onMouseEnter={() => setGlobeHovered(true)}
             onMouseLeave={() => setGlobeHovered(false)}
           >
@@ -30,12 +35,7 @@ const About: React.FC = () => {
               <GlobeComponent isHovered={isGlobeHovered} />
             </div>
           </div>
-          <div className="about-card gradient-card-purple tall-card">
-            <div className="card-content">
-               <Stats />
-            </div>
-          </div>
-          <div className="about-card resume-card">
+          <div className="about-card resume-card gradient-card-silver">
             <div className="card-content">
               <p>Interested in my work? Feel free to download my resume for a more detailed look at my skills and experience.</p>
               <a href={resumePdf} download="Nishant_Resume.pdf" className="cta-button">
@@ -50,7 +50,7 @@ const About: React.FC = () => {
               </a>
             </div>
           </div>
-          <div className="about-card large-card gradient-card-red">
+          <div className="about-card large-card gradient-card-red connect-card">
             <div className="card-content">
               <h3>Let's Connect</h3>
               <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out and let's create something amazing together.</p>
